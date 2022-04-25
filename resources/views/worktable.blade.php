@@ -171,7 +171,6 @@
         $.ajax({
             url: "/work_delete/"+id,
             method: "get",
-            data: {id:id},
             success: function(data){
                 location.reload();
             }

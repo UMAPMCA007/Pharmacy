@@ -63,12 +63,15 @@ class DashboardController extends Controller
         $request->validate([
             'title' => 'required',
             'description' => 'required',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'image' => '',
         ]);
+        if($request->image != null){
+            $imageName = time().'.'.$request->image->extension();  
+            $request->image->move(public_path('images'), $imageName);
 
-        $imageName = time().'.'.$request->image->extension();  
-
-        $request->image->move(public_path('images'), $imageName);
+        }else{
+            $imageName = Work::where('id', $id)->first()->image;
+        }
 
         $work = Work::find($id);
         $work->title = $request->title;

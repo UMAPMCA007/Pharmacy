@@ -33,5 +33,5 @@ Route::post('/work_store', [DashboardController::class, 'store'])->name('work.st
 Route::get('/work_show', [DashboardController::class, 'show'])->name('work.show');
 Route::get('/work_edit/{id}', [DashboardController::class, 'edit'])->name('work.edit');
 Route::post('/work_update/{id}', [DashboardController::class, 'update'])->name('work.update');
-Route::get('/work_delete/{id}', [DashboardController::class, 'delete'])->name('work.delete');
+Route::get('/work_delete/{id}', [DashboardController::class, 'destroy'])->name('work.delete');
 Route::post('/work_create', [DashboardController::class, 'create'])->name('work.create');
