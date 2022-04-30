@@ -46,6 +46,7 @@ class DashboardController extends Controller
         if(Auth::user()->is_admin == 1){
             $works = Work::select(
                 'users.name',
+                'works.id',
                 'works.title',
                 'works.description',
                 'works.image',
@@ -55,6 +56,7 @@ class DashboardController extends Controller
         }else{
             $works = Work::select(
                 'users.name',
+                'works.id',
                 'works.title',
                 'works.description',
                 'works.image',
@@ -64,7 +66,7 @@ class DashboardController extends Controller
             ->get();
         }
         
-        return view('workTable', compact('works'));
+        return view('worktable', compact('works'));
     }
 
     public function edit($id)

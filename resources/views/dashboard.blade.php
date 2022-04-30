@@ -14,7 +14,6 @@
              <div class="row ">
                  <div class="col-md-8 mt-5">
                       <h2 class="text-center">Welcome {{Auth::user()->name}}</h2>
-
                  </div>
 
 

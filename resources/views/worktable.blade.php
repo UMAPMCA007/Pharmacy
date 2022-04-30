@@ -14,7 +14,6 @@
                 <div class="modal-body">
                     <form  method="post" id="editForm">
                         @csrf
-                        
                         <input type="hidden" name="id" id="id">
                         <div class="form-group">
                             <label for="title">Title</label>
@@ -130,8 +129,7 @@
 
     </div>
 </div>    
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="{{asset('css/jquery-3.6.0.js')}}" ></script>
 <script>
     $(document).ready(function(){
         $('.edit').click(function(){
