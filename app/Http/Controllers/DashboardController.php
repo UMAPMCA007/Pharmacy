@@ -44,9 +44,24 @@ class DashboardController extends Controller
     public function show()
     {
         if(Auth::user()->is_admin == 1){
-            $works = Work::all();
+            $works = Work::select(
+                'users.name',
+                'works.title',
+                'works.description',
+                'works.image',
+            )
+            ->join('users', 'works.user_id', '=', 'users.id')
+            ->get();
         }else{
-            $works = Work::where('user_id', auth()->user()->id)->get();
+            $works = Work::select(
+                'users.name',
+                'works.title',
+                'works.description',
+                'works.image',
+            )
+            ->join('users', 'works.user_id', '=', 'users.id')
+            ->where('works.user_id', auth()->user()->id)
+            ->get();
         }
         
         return view('workTable', compact('works'));

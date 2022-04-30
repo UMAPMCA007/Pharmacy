@@ -102,6 +102,7 @@
             <table class="table table-bordered" >
                 <thead>
                     <tr>
+                        <th>worker name</th>
                         <th>Title</th>
                         <th>Description</th>
                         <th>Image</th>
@@ -111,6 +112,7 @@
                 <tbody id="myTable">
                     @foreach($works as $work)
                     <tr>
+                        <td>{{$work->name}}</td>
                         <td>{{$work->title}}</td>
                         <td>{{$work->description}}</td>
                         <td><img src="{{asset('images/'.$work->image)}}" alt="" width="100px" height="100px"></td>
